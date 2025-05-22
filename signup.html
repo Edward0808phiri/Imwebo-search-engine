@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up | Imwebo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: rgba(16, 123, 156, 0.362);
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+    }.sbt{
+      background-color: green;
+      color: white;
+    
+    }.sbt:hover{
+      color: white;
+      background-color: rgba(0, 128, 0, 0.563);
+    }footer{
+      color: green;
+    }.signupForm{
+      border: 1px solid red;
+      padding: 3px;
+      border-radius: 5px;
+      width: fit-content;
+      width: max-content;
+      margin-left: 560px;
+    }.ceo{
+      border: 1px solid grey;
+      border-radius: 5px;
+      padding: 10px;
+      width: fit-content;
+      width: max-content;
+      margin-left: 1270px;
+      color: purple;
+      
+    }.soci{
+      width: 60px;
+      height: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ceo">
+    <h3>ukwenda solutions</h3>
+  </div>
+  <header>
+
+  </header>
+  <h2>Create Your Imwebo! Account</h2>
+
+  <form id="signupForm" class="signupForm">
+    <label>username</label>
+    <input
+      type="email"
+      id="email"
+      placeholder="yourname@imwebo.com"
+      required
+    /><br>
+    <label>password</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      required
+    /><br>
+
+    <button type="submit" class="sbt">Sign Up</button>
+  </form>
+
+  <p id="error-message" style="color: red;"></p>
+
+  <script>
+    const form = document.getElementById("signupForm");
+    const errorMessage = document.getElementById("error-message");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const pattern = /^[a-zA-Z0-9._%+-]+@imwebo\.com$/;
+
+      if (!pattern.test(email)) {
+        errorMessage.textContent = "Email must end with @imwebo.com";
+        return;
+      }
+
+      // ✅ At this point, the email is valid
+      // Proceed to send data to Firebase or handle sign-up
+      console.log("Signing up with:", email, password);
+
+      // You can now call your Firebase Auth code here
+    });
+  </script>
+  <div class="socials"><P>connect with us through our socials</P>
+    <a href=""><img src="logos/insta (1).png" class="soci"></a>
+    <a href=""><img src="logos/tiktok.png" class="soci"></a>
+    <a href="https://web.facebook.com/profile.php?id=100039317362573"><img src="logos/blackfb.png" class="soci"></a>
+    <a href="https://wa.me/+260979502351/?text=urlencodedtext"><img src="logos/gap.png" class="soci"></a>
+  </div>
+  <footer>
+    <p>© 2025 Imwebo | Inspired by Zambia [ukwenda solutions]</p>
+  </footer>
+</body>
+</html>

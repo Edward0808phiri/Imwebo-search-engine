@@ -76,20 +76,77 @@
       font-size: 14px;
       color: #e40202;
     }
-
+.soci{
+  width: 60px;
+  height: 60px;
+}.bauth:hover{
+  color: red;
+  
+}
   </style>
 </head>
+<script>
+  firebase.auth().onAuthStateChanged(user => {
+    if (!user) {
+      window.location.href = "login.html";
+    }
+  });
+</script>
+
 <body>
 <img src="logos/eagle.png" class="logo-image" />
   <div class="logo">Imwebo</div>
+  
 
 
   <footer>© 2025 Imwebo | Inspired by Zambia [ukwenda solutions]</footer>
 
   <script async src="https://cse.google.com/cse.js?cx=46e0c7b37050a4de3">
     div.innerHTML = `<h3 style="color: green;"><a href="${item.link}" target="_blank">${item.title}</a></h3><p>${item.snippet}</p>`;
+    function saveSearchResults(query, results) {
+  const existing = JSON.parse(localStorage.getItem("searchHistory")) || [];
+  existing.push({ query, results });
+  localStorage.setItem("searchHistory", JSON.stringify(existing));
+}
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDDAtA-EMhMFJ4knKpa84xyq2ImckEuamE",
+  authDomain: "inwebo-0808d.firebaseapp.com",
+  projectId: "inwebo-0808d",
+  storageBucket: "inwebo-0808d.firebasestorage.app",
+  messagingSenderId: "279255796854",
+  appId: "1:279255796854:web:4e3d0768c1ec3550df6357",
+  measurementId: "G-7XB0M497LF"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 </script>
-<div class="gcse-search"></div>
+
+<div class="gcse-search"></div><br><br>
+<div id="auth-buttons" style="text-align: right; padding: 10px;">
+  <a href="login.html">
+    <button style="margin-right: 10px; padding: 8px 16px; border: none; background-color: #4285F4; color: white; border-radius: 4px;" >Login</button>
+  </a>
+  <a href="signup.html">
+    <button style="padding: 8px 16px; border: none; background-color: #34A853; color: white; border-radius: 4px;">Sign Up</button>
+  </a>
+</div>
+<div class="socials"><P>connect with us through our socials</P>
+    <a href=""><img src="logos/insta (1).png" class="soci"></a>
+    <a href=""><img src="logos/tiktok.png" class="soci"></a>
+    <a href="https://web.facebook.com/profile.php?id=100039317362573"><img src="logos/blackfb.png" class="soci"></a>
+    <a href="https://wa.me/+260979502351/?text=urlencodedtext"><img src="logos/gap.png" class="soci"></a>
+  </div>
+
 </body>
 </html>
